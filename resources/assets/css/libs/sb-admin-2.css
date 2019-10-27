@@ -132,7 +132,14 @@ body {
         z-index: 1;
         position: absolute;
         width: 250px;
-        margin-top: 51px;
+        margin-top: -40px;
+    }
+
+    #sido > .sidebar {
+        z-index: 1;
+        position: absolute;
+        width: 250px;
+        margin-top: 10px;
     }
 
     .navbar-top-links .dropdown-messages,
