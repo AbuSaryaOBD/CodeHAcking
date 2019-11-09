@@ -24,7 +24,8 @@ body {
         /* margin: 0 0 0 250px; */
         padding: 0 30px;
         border-left: 1px solid #e7e7e7;
-        width: 75%;
+        width: 78%;
+        min-width: 398px;
         display: inline-block;
     }
 }
@@ -140,7 +141,8 @@ body {
     #sido > .sidebar {
         z-index: 1;
         /* position: absolute; */
-        width: 22%;
+        width: 20%;
+        min-width: 100px;
         /* margin-top: 40px; */
         display: inline-block;
     }
