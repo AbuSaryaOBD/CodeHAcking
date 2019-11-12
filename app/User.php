@@ -2,9 +2,10 @@
 
 namespace App;
 
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -17,7 +18,7 @@ class User extends Authenticatable
      */
     protected $guarded=[];
     // protected $fillable = [
-    //     'name', 'email', 'password','role_id','is_active'
+    //     'name', 'email', 'password','role_id','is_active','photo_id'
     // ];
 
     /**
@@ -46,5 +47,28 @@ class User extends Authenticatable
     public function photo()
     {
         return $this->belongsTo('App\Photo');
+    }
+
+    public function setPasswordAttribute($password)
+    {
+        if (!empty($password)) {
+            $this->attributes['password'] = Hash::make($password);
+        }
+    }
+
+    public function isAdmin()
+    {
+        if($this->role != null)
+        {
+            if ($this->role->name == 'administrator' && $this->is_active == 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
     }
 }

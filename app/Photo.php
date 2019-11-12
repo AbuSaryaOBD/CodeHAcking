@@ -10,8 +10,8 @@ class Photo extends Model
     protected $uploads = '/images/';
     protected $guarded=[];
 
-    public function getFileAttribute($photo)
+    public function getFileAttribute($value)
     {
-        return $this->uploads . $photo;
+        return $this->uploads . $value;
     }
 }
