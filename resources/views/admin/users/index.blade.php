@@ -16,7 +16,7 @@
             <th>Edit</th>
             <th>Name</th>
             <th>Email</th>
-            {{-- <th>Role</th> --}}
+            <th>Role</th>
             <th>Status</th>
             <th>Created</th>
             <th>Updated</th>
@@ -28,11 +28,11 @@
                     <tr>
                         <td>{{$user->id}}</td>
                         
-                        <td><img src="{{ $user->photo ? $user->photo->file :'/images/aj.png' /*$user->photo->noPhoto()*/ }}" alt="User Photo" height="50px"></td>
+                        <td><img src="{{ $user->photo ? $user->photo->file :'/images/aj.png'  }}" alt="User Photo" width="50px" class="img-responsive img-rounded"></td>
                         <td><a href="{{ route('users.edit',$user->id) }}">{{ $user->name }}</a></td>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
-                        {{-- <td>{{$user->role->name}}</td> --}}
+                        <td>{{$user->role->name}}</td>
                         <td>{{ $user->is_active == 1 ? 'Active' : 'Not Active' }}</td>
                         <td>{{$user->created_at->diffForHumans()}}</td>
                         <td>{{$user->updated_at->diffForHumans()}}</td>

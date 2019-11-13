@@ -14,8 +14,11 @@
         <div class="form-group">
             <label for="category_id">Category</label>
             <select name="category_id" class="form-control">
-                <option value="0">Stupid Edwin</option>
+                @foreach ($categories as $id => $name)
+                    <option value="{{ $id }}">{{ $name }}</option>
+                @endforeach
             </select>
+            {{-- <p>{{ print_r($jar) }}</p> --}}
         </div>
         <div class="form-group">
             <label for="photo_id">File :</label>

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -49,12 +49,12 @@ class User extends Authenticatable
         return $this->belongsTo('App\Photo');
     }
 
-    public function setPasswordAttribute($password)
-    {
-        if (!empty($password)) {
-            $this->attributes['password'] = Hash::make($password);
-        }
-    }
+    // public function setPasswordAttribute($password)
+    // {
+    //     if (!empty($password)) {
+    //         $this->attributes['password'] = bcrypt($password);
+    //     }
+    // }
 
     public function isAdmin()
     {

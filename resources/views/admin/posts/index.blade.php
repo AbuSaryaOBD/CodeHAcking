@@ -22,12 +22,12 @@
                     <tr>
                         <td>{{$post->id}}</td>
                         <td><img src="{{$post->photo ? $post->photo->file:'/images/icon-pad.png'}}" alt="No Picture" height="50px"></td>
-                        <td>{{$post->user->name}}</td>
-                        <td>{{$post->category_id}}</td>
-                        <td>{{$post->title}}</td>
-                        <td>{{$post->body}}</td>
-                        <td>{{$post->created_at->diffForHumans()}}</td>
-                        <td>{{$post->updated_at->diffForHumans()}}</td>
+                        <td> <a href="{{ route('posts.edit',$post->id) }}">{{$post->user->name}}</a></td>
+                        <td>{{ $post->category ? $post->category->name : 'Uncategorized'}}</td>
+                        <td>{{ $post->title }}</td>
+                        <td>{{ Str::limit($post->body,10) }}</td>
+                        <td>{{ $post->created_at->diffForHumans() }}</td>
+                        <td>{{ $post->updated_at->diffForHumans() }}</td>
                     </tr>
                 @endforeach
             @endif
